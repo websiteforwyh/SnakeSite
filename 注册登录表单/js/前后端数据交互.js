@@ -1,10 +1,10 @@
-document.getElementById('signup').addEventListener('click', function() {
-    var username = document.getElementById('username').value;
-    var password = document.getElementById('password').value;
+function RegisterRequest() {
+    var username = document.getElementById("register_username").value;
+    var password = document.getElementById("register_password").value;
 
     // 构建发送到服务器的数据
     var data = {
-        // table: "users",
+        table: "users",
         username: username,
         password: password
     };
@@ -14,7 +14,7 @@ document.getElementById('signup').addEventListener('click', function() {
     xhr.open('POST', 'http://127.0.0.1:5000/register', true);
     xhr.setRequestHeader('Content-Type', 'application/json');
 
-    xhr.onreadystatechange = function() {
+    xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
             // 处理服务器返回的数据
             var response = JSON.parse(xhr.responseText);
@@ -29,6 +29,5 @@ document.getElementById('signup').addEventListener('click', function() {
             }
         }
     };
-
     xhr.send(JSON.stringify(data));
-});
+}

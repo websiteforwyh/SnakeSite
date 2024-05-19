@@ -7,7 +7,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(img/2.jpg);
+    background-image: url(../img/2.jpg);
     background-size:cover ;
     
 }
@@ -17,7 +17,7 @@ body{
 }
 .container{
     padding: 50px;
-    background-image: url(img/3.jpg);
+    background-image: url(../img/3.jpg);
     width: 650px;
     height:400px;
     top:100px; 
@@ -33,7 +33,7 @@ body{
     position: absolute;
     top: -10%;
     left: 5%;
-    background-image: url(img/1.jpg);
+    background-image: url(../img/1.jpg);
     /* background-color: aquamarine; */
     background-size: cover;
     width: 400px;

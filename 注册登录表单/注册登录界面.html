@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册界面登录</title>
+    <link rel="stylesheet" href="注册登录界面.css">
+    
+
+</head>
+<body>
+    <div class="container">
+        <div class="form-box">
+        <div class="register-box hidden">
+            <h1>注册界面</h1> 
+            <input type="text" placeholder="用户名">
+            <input type="email" placeholder="电子邮箱">
+            <input type="password" placeholder="密码">
+            <input type="password" placeholder="确认密码">
+            <button>注册</button>
+            </div>
+           <div class="login-box ">
+                <h1>登录界面</h1>
+                <input type="text" placeholder="用户名">
+                <input type="password" placeholder="密码">
+                <button>登录</button>
+            </div>
+        </div>
+        <div class="con-box left">
+            <h2>欢迎来到<span>好恰恰</span></h2>
+            <p>快来告诉我你想要的<span>❤零食 ❤</span>吧</p>
+            <img src="img/4.jpeg" alt="">
+
+            <p>已有账号</p>
+            <button id="login">去登录</button>
+        
+        </div>
+        <div class="con-box right">
+            <h2>欢迎来到<span>好恰恰</span></h2>
+            <p>快来看看有没有你想要的<span>❤零食 ❤</span>吧</p>
+            <img src="img/5.jpeg" alt="">
+            <p>没有账号？</p>
+            <button id="register">去注册</button>
+         </div>
+    </div>
+    <script>
+    let login=document.getElementById('login');
+    let register=document.getElementById('register');
+    let form_box=document.getElementsByClassName('form-box')[0];
+    let register_box=document.getElementsByClassName('register-box')[0];
+    let login_box=document.getElementsByClassName('login-box')[0];
+
+    register.addEventListener('click',()=>{
+        form_box.style.transform='translateX(80%)';
+        login_box.classList.add('hidden');
+        register_box.classList.remove('hidden');
+
+    })
+    login.addEventListener('click',()=>{
+        form_box.style.transform='translateX(0%)';
+         
+         register_box.classList.add('hidden');
+        login_box.classList.remove('hidden');
+
+        
+       
+        
+    })
+
+
+
+
+</script>
+</body>
+
+</html>

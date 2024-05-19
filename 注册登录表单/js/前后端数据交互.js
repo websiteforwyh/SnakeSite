@@ -4,7 +4,7 @@ function RegisterRequest() {
 
     // 构建发送到服务器的数据
     var data = {
-        table: "users",
+        table: 'users',
         username: username,
         password: password
     };

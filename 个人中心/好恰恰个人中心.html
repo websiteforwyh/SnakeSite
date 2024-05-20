@@ -21,7 +21,7 @@
             <p>手机：<input type="text" id="phone" value="123456789" readonly></p>
         </section>
         <button id="editBtn" class="edit-btn" onclick="toggleEdit()">编辑个人信息</button>
-        <button id="saveBtn" class="edit-btn" style="display: none;" onclick="saveEdit()">保存</button>
+        <button id="saveBtn" class="edit-btn" style="display: none;" onclick="set_personal()">保存</button>
         <button id="cancelBtn" class="edit-btn" style="display: none;" onclick="cancelEdit()">取消</button>
 
         <section class="favorites">
@@ -38,20 +38,6 @@
     </main>
 
     <script src="js/个人中心.js"></script>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            console.log("Page is opened!");
-            document.getElementById('username').value = '李四';
-
-            if (!sessionStorage.getItem('isLoggedIn')) {
-                window.history.back(); // 回退到原来的页面
-                alert("访问拒绝，请先登录！");
-            }
-        });
-    </script>
-
-
 </body>
 
 </html>

@@ -19,13 +19,12 @@ function RegisterRequest() {
         if (xhr.readyState === 4 && xhr.status === 200) {
             // 处理服务器返回的数据
             var response = JSON.parse(xhr.responseText);
-            if (response.success) {
-                // 注册成功
-                console.log(response.message);
-                console.log(response.sql_data);
-            } else {
-                // 注册失败
-                console.log(response.message);
+            if (response.success) {     // 注册成功
+                alert(response.message);
+                //  注册成功后保存登录状态到LocalStorage
+                sessionStorage.setItem('isLoggedIn', 'true');
+                window.location.href = '../好恰恰零食首页.html';
+            } else {    // 注册失败
                 alert(response.message);
             }
         }

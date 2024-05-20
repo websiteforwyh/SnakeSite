@@ -1,22 +1,33 @@
-﻿
-function addSnack() {
-    var snackName = prompt('请输入要添加的零食名称：');
-    if (snackName) {
-        var snackList = document.getElementById('snackList');
-        var newSnack = document.createElement('li');
-        newSnack.textContent = snackName;
-        snackList.appendChild(newSnack);
-    }
+﻿function buttonSwitch(argument1, argument2) {
+    // 显示按钮切换
+    document.getElementById('editBtn').style.display = argument1;
+    document.getElementById('saveBtn').style.display = argument2;
+    document.getElementById('cancelBtn').style.display = argument2;
 }
 
-function removeSnack() {
-    var snackList = document.getElementById('snackList');
-    var lastSnack = snackList.lastElementChild;
-    if (lastSnack) {
-        snackList.removeChild(lastSnack);
-    } else {
-        alert('没有可删除的零食！');
-    }
+function toggleEdit() {
+    // 编辑
+    document.getElementById('username').removeAttribute('readonly');
+    document.getElementById('address').removeAttribute('readonly');
+    document.getElementById('phone').removeAttribute('readonly');
+    // 切换显示按钮
+    buttonSwitch('none', 'inline-block');
 }
 
-alert("欢迎来到零食网页个人中心！");
+function saveEdit() {
+    // 保存
+    document.getElementById('username').readOnly = true;
+    document.getElementById('address').readOnly = true;
+    document.getElementById('phone').readOnly = true;
+    // 切换显示按钮
+    buttonSwitch('inline-block', 'none');
+}
+
+function cancelEdit() {
+    // 取消
+    document.getElementById('username').readOnly = true;
+    document.getElementById('address').readOnly = true;
+    document.getElementById('phone').readOnly = true;
+    // 切换显示按钮
+    buttonSwitch('inline-block', 'none');
+}

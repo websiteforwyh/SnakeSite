@@ -1,12 +1,14 @@
 ﻿<!DOCTYPE html>
 <html lang="zh">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>零食网页个人中心</title>
-    
+
     <link href="css/basic.css" rel="stylesheet" type="text/css" />
 </head>
+
 <body>
     <header>
         <h1>欢迎来到好恰恰零食世界个人中心</h1>
@@ -14,29 +16,14 @@
     <main>
         <section class="profile">
             <h2>个人信息</h2>
-            <p>姓名：张三</p>
-            <p>地址：广州</p>
-            <p>手机：123456789</p>
+            <p>用户名：<input type="text" id="username" value="张三" readonly></p>
+            <p>地址：<input type="text" id="address" value="广州" readonly></p>
+            <p>手机：<input type="text" id="phone" value="123456789" readonly></p>
         </section>
-        <button onclick="editProfile()">编辑个人信息</button>
-        <script>
-            function editProfile() {
-                var profile = document.querySelector('.profile');
-                var newName = prompt('请输入新的姓名：', profile.children[1].textContent.slice(3));
-                var newAge = prompt('请输入新的地址：', profile.children[2].textContent.slice(3));
-                var newEmail = prompt('请输入新的手机：', profile.children[3].textContent.slice(3));
-    
-                if (newName) {
-                    profile.children[1].textContent = '姓名：' + newName;
-                }
-                if (newAge) {
-                    profile.children[2].textContent = '地址：' + newAge;
-                }
-                if (newEmail) {
-                    profile.children[3].textContent = '手机：' + newEmail;
-                }
-            }
-        </script>
+        <button id="editBtn" class="edit-btn" onclick="toggleEdit()">编辑个人信息</button>
+        <button id="saveBtn" class="edit-btn" style="display: none;" onclick="saveEdit()">保存</button>
+        <button id="cancelBtn" class="edit-btn" style="display: none;" onclick="cancelEdit()">取消</button>
+
         <section class="favorites">
             <h2>零食购物车</h2>
             <ul id="snackList">
@@ -47,8 +34,20 @@
         </section>
         <button onclick="addSnack()">添加零食</button>
         <button onclick="removeSnack()">删除零食</button>
-        
+
     </main>
+
     <script src="js/个人中心.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            console.log("Page is opened!");
+            document.getElementById('username').value = '李四';
+            
+        });
+    </script>
+
+    
 </body>
+
 </html>

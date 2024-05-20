@@ -40,14 +40,18 @@
     <script src="js/个人中心.js"></script>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function () {
             console.log("Page is opened!");
             document.getElementById('username').value = '李四';
-            
+
+            if (!sessionStorage.getItem('isLoggedIn')) {
+                window.history.back(); // 回退到原来的页面
+                alert("访问拒绝，请先登录！");
+            }
         });
     </script>
 
-    
+
 </body>
 
 </html>

@@ -31,3 +31,49 @@ function cancelEdit() {
     // 切换显示按钮
     buttonSwitch('inline-block', 'none');
 }
+
+// 更换元素数据/禁止非法访问
+document.addEventListener("DOMContentLoaded", function () {
+    console.log("Page is opened!");
+    document.getElementById('username').value = '李四';
+
+    if (!sessionStorage.getItem('isLoggedIn')) {
+        window.history.back(); // 回退到原来的页面
+        alert("访问拒绝，请先登录！");
+    }
+});
+
+// 设置个人信息
+function set_personal() {
+    var username = document.getElementById("username");
+    var address = document.getElementById("address");
+    var phone = document.getElementById("phone");
+    console.log(username.value);
+    console.log(address.value);
+    console.log(phone.value);
+
+    // 构建发送到服务器的数据
+    var data = {
+        table: 'personal',
+        username: username.value,
+        address: address.value,
+        phone:phone.value
+    };
+
+    // 通过 Ajax 发送数据到服务器
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'http://127.0.0.1:5000/personal', true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            var response = JSON.parse(xhr.responseText);
+            if (response.success) {
+                alert("成功！");
+            } else {
+                alert("失败！");
+            }
+        }
+    };
+    xhr.send(JSON.stringify(data));
+}

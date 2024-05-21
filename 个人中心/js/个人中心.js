@@ -41,6 +41,7 @@ function set_personal() {
     // 构建发送到服务器的数据
     var data = {
         table: 'personal',
+        method: "set",
         username: username.value,
         address: address.value,
         phone:phone.value
@@ -55,9 +56,9 @@ function set_personal() {
         if (xhr.readyState === 4 && xhr.status === 200) {
             var response = JSON.parse(xhr.responseText);
             if (response.success) {
-                alert("成功！");
+                alert(response.message);
             } else {
-                alert("失败！");
+                alert(response.message);
             }
         }
     };
@@ -66,7 +67,28 @@ function set_personal() {
 
 // 获取数据进行匹配，替换页面数据（待实现-------------）
 function get_personal(){
-    document.getElementById('username').value = '李四';
+
+    // 构建发送到服务器的数据
+    var data = {
+        table: 'personal',
+        method: "get"
+    };
+
+    // 通过 Ajax 发送数据到服务器
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'http://127.0.0.1:5000/personal', true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            var response = JSON.parse(xhr.responseText);
+            
+            console.log(response);
+            document.getElementById('username').value = response.username;
+        }
+    };
+    xhr.send(JSON.stringify(data));
+    
 }
 
 // 更换元素数据/禁止非法访问

@@ -19,7 +19,13 @@
                 <li><a href="#">首页</a></li>
                 <li><a href="#">零食介绍</a></li>
                 <li><a href="#">零食售卖</a></li>
-                <li style="float:right"><a class="active" href="#" onclick="check()">个人中心</a></li>
+                <li class="personal_bar">
+                    <button class="active" href="#">个人中心</button>
+                    <div class="userbox">
+                        <p class="user" onclick="check()">用户</p>
+                        <p class="signoff">退出登录</p>
+                    </div>
+                </li>
             </ul>
         </nav>
     </header>
@@ -39,7 +45,7 @@
         </div>
     </div>
 
-    
+
     <section class="featured-dish">
         <h2>零食分类区</h2>
 
@@ -70,20 +76,54 @@
         <p>&copy; 2021 好恰恰首页网页</p>
     </footer>
 
-   
+
 </body>
- <script>
-        function check() {
-            // 检查登录状态
-            if (!sessionStorage.getItem('isLoggedIn')) {
-                // 用户未登录，显示提示信息并重定向到登录页面
-                let c = confirm("请先登录！");
-                if(c){
-                    window.location.href = '注册登录表单/注册登录界面.html';
-                }
+<script>
+    function check() {
+        // 检查登录状态
+        if (!sessionStorage.getItem('isLoggedIn')) {
+            // 用户未登录，显示提示信息并重定向到登录页面
+            let c = confirm("请先登录！");
+            if (c) {
+                window.location.href = '注册登录表单/注册登录界面.html';
+            }
+        } else {
+            window.location.href = '个人中心/好恰恰个人中心.html';
+        }
+    }
+
+    var s = window.screen; // 获取屏幕的属性
+
+    // 私人平板电脑屏幕大小（width=1344，height=840，360浏览器）
+    if (s.height <= 840 && s.width <= 1344) {
+        $('.featured-dish h2').css('margin', '28px 0px 0 30px');
+        $('.one').css('top', '445px');
+        $('.one').css('left', '1%');
+
+    } else {
+        $('.featured-dish h2').css('margin', '51px 0px 0 901px');
+        $('.one').css('top', '495px');
+        $('.one').css('left', '18%');
+
+    }
+
+    $(".active").click(function () {
+        var display = document.getElementsByClassName("userbox")[0].style.display;
+
+        if (!sessionStorage.getItem('isLoggedIn')) {
+            // 用户未登录，显示提示信息并重定向到登录页面
+            let c = confirm("请先登录！");
+            if (c) {
+                window.location.href = '注册登录表单/注册登录界面.html';
+            }
+        } else {
+            if (display == "block") {
+                $(".userbox").css("display", 'none');
             } else {
-                window.location.href = '个人中心/好恰恰个人中心.html';
+                $(".userbox").css("display", 'block');
             }
         }
-    </script>
+    });
+</script>
+
 </html>

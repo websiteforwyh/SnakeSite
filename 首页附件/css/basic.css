@@ -36,6 +36,7 @@ li a:hover:not(.active) {
 
 .active {
     background-color: #6ece32;
+    padding: 20px;
 }
 
 .featured-dish {
@@ -87,4 +88,24 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+
+.personal_bar{
+    float: right;
+}
+
+.userbox{
+    position: fixed;
+    text-align: center;
+    display: none;
+    background-color: blanchedalmond;
+    width: 96px;
+    z-index: 1;
+}
+
+.user,.signoff{
+    width: auto;
+    padding: 10px;
+    cursor: pointer;
+    border: solid 1px black;
 }

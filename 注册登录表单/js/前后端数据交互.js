@@ -25,7 +25,7 @@ function RegisterRequest() {
                 alert(response.message);
                 //  注册成功后保存登录状态到LocalStorage
                 sessionStorage.setItem('isLoggedIn', 'true');
-                window.location.href = '../index.html';
+                window.location.href = '../好恰恰零食首页.html';
             } else {    // 注册失败
                 alert(response.message);
             }
@@ -55,14 +55,11 @@ function LoginRequest() {
         if (xhr.readyState === 4 && xhr.status === 200) {
             // 处理服务器返回的数据
             var response = JSON.parse(xhr.responseText);
-            if (response.success) {
-                // 登录成功
-                alert("登录成功！");
-                // 登录成功后保存登录状态到LocalStorage
-                sessionStorage.setItem('isLoggedIn', 'true');
-                window.location.href = '../index.html';
-            } else {
-                // 登录失败
+            if (response.success) { // 登录成功
+                alert(response.message);
+                sessionStorage.setItem('isLoggedIn', 'true');   // 登录成功后保存登录状态到LocalStorage
+                window.location.href = '../好恰恰零食首页.html';    // 加载新页面
+            } else {    // 登录失败
                 alert(response.message);
             }
         }

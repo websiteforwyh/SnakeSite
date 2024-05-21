@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>零食网页个人中心</title>
+
+    <link href="css/basic.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <header>
+        <h1 style="text-align: center;">欢迎来到好恰恰零食世界个人中心</h1>
+    </header>
+    <main>
+        <section class="profile">
+            <h2>个人信息</h2>
+            <p>用户名：<input type="text" id="username" value="张三" readonly></p>
+            <p>地址：<input type="text" id="address" value="广州" readonly></p>
+            <p>手机：<input type="text" id="phone" value="123456789" readonly></p>
+        </section>
+        <button id="editBtn" class="edit-btn" onclick="toggleEdit()">编辑个人信息</button>
+        <button id="saveBtn" class="edit-btn" style="display: none;" onclick="set_personal()">保存</button>
+        <button id="cancelBtn" class="edit-btn" style="display: none;" onclick="cancelEdit()">取消</button>
+
+        <section class="favorites">
+            <h2>零食购物车</h2>
+            <ul id="snackList">
+                <li>巧克力</li>
+                <li>薯片</li>
+                <li>饼干</li>
+            </ul>
+        </section>
+        <button onclick="addSnack()">添加零食</button>
+        <button onclick="removeSnack()">删除零食</button>
+
+    </main>
+
+    <script src="js/个人中心.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册界面登录</title>
+    <link rel="stylesheet" href="css/注册登录界面.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-box">
+        <div class="register-box hidden">
+            <h1>注册界面</h1> 
+            <input id="register_username" type="text" placeholder="用户名">
+            <input id="email" type="email" placeholder="电子邮箱">
+            <input id="register_password" type="password" placeholder="密码">
+            <input id="comfirm_password" type="password" placeholder="确认密码">
+            <button id="register" onclick="register()">注册</button>
+            </div>
+           <div class="login-box ">
+                <h1>登录界面</h1>
+                <input id="username" type="text" placeholder="用户名">
+                <input id="password" type="password" placeholder="密码">
+                <button id="login" onclick="login()">登录</button>
+            </div>
+        </div>
+        <div class="con-box left">
+            <h2>欢迎来到<span>好恰恰</span></h2>
+            <p>快来告诉我你想要的<span>❤零食 ❤</span>吧</p>
+            <img src="img/4.jpeg" alt="">
+
+            <p>已有账号</p>
+            <button id="to_login">去登录</button>
+        
+        </div>
+        <div class="con-box right">
+            <h2>欢迎来到<span>好恰恰</span></h2>
+            <p>快来看看有没有你想要的<span>❤零食 ❤</span>吧</p>
+            <img src="img/5.jpeg" alt="">
+            <p>没有账号？</p>
+            <button id="to_register">去注册</button>
+         </div>
+    </div>
+    
+    <!-- 登录注册切换 -->
+    <script src="js/登录注册切换.js"></script>
+
+    <!-- 前后端数据交互 -->
+    <script src="js/前后端数据交互.js"></script>
+
+    <!-- 登录注册操作判断 -->
+    <script src="js/登录注册操作判断.js"></script>
+</body>
+
+</html>

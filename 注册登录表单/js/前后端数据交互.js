@@ -23,7 +23,7 @@ function RegisterRequest() {
                 alert(response.message);
                 //  注册成功后保存登录状态到LocalStorage
                 sessionStorage.setItem('isLoggedIn', 'true');
-                window.location.href = '../好恰恰零食首页.html';
+                window.location.href = '../index.html';
             } else {    // 注册失败
                 alert(response.message);
             }
@@ -36,12 +36,14 @@ function RegisterRequest() {
 function LoginRequest() {
     var username = document.getElementById("username");
     var password = document.getElementById("password");
+    var email = document.getElementById("email");
 
     // 构建发送到服务器的数据
     var data = {
         table: 'users',
         username: username.value,
-        password: password.value
+        password: password.value,
+        email: email.value
     };
 
     // 通过 Ajax 发送数据到服务器
@@ -58,7 +60,7 @@ function LoginRequest() {
                 alert("登录成功！");
                 // 登录成功后保存登录状态到LocalStorage
                 sessionStorage.setItem('isLoggedIn', 'true');
-                window.location.href = '../好恰恰零食首页.html';
+                window.location.href = '../index.html';
             } else {
                 // 登录失败
                 alert("登录失败！");

@@ -71,10 +71,10 @@ function get_personal(){
 
 // 更换元素数据/禁止非法访问
 document.addEventListener("DOMContentLoaded", function () {
-    get_personal(); // 调用
-
     if (!sessionStorage.getItem('isLoggedIn')) {
         window.history.back(); // 回退到原来的页面
         alert("访问拒绝，请先登录！");
+    }else{
+        get_personal(); // 调用
     }
 });

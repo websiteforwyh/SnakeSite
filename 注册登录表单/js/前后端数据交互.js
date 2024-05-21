@@ -2,12 +2,14 @@
 function RegisterRequest() {
     var username = document.getElementById("register_username").value;
     var password = document.getElementById("register_password").value;
+    var email = document.getElementById("email").value;
 
     // 构建发送到服务器的数据
     var data = {
         table: 'users',
         username: username,
-        password: password
+        password: password,
+        email: email
     };
 
     // 通过 Ajax 发送数据到服务器
@@ -36,14 +38,12 @@ function RegisterRequest() {
 function LoginRequest() {
     var username = document.getElementById("username");
     var password = document.getElementById("password");
-    var email = document.getElementById("email");
 
     // 构建发送到服务器的数据
     var data = {
         table: 'users',
         username: username.value,
-        password: password.value,
-        email: email.value
+        password: password.value
     };
 
     // 通过 Ajax 发送数据到服务器
@@ -63,7 +63,7 @@ function LoginRequest() {
                 window.location.href = '../index.html';
             } else {
                 // 登录失败
-                alert("登录失败！");
+                alert(response.message);
             }
         }
     };

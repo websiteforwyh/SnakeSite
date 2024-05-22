@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/forget.css">
 
     <script src="../首页附件/js/jquery-1.12.4.js"></script>
+    <script src="js/前后端数据交互.js"></script>
 </head>
 
 <body>
@@ -15,48 +16,24 @@
     <div class="container">
         <h2 style="text-align: center;">忘记密码</h2>
         <form>
-            <label for="username">请输入您的用户名</label>
+            <label>请输入您的用户名:</label>
             <input type="text" id="username" name="username" required>
-            <label for="email">请输入您的邮箱</label>
-            <input type="email" id="email" name="email" required>
-            <button type="submit" onclick="check()">提交</button>
+            <label>请输入您的邮箱:</label>
+            <input type="text" id="email" name="email" required>
+            <button id="submit">提交</button>
         </form>
     </div>
 
     <script>
-        function check() {
-            // 验证数据是否匹配
-            var username = document.getElementById('username').value;
-            var email = document.getElementById('email').value;
+        // 事件监听器
+        document.getElementById('submit').addEventListener('click', function (e) {
+            e.preventDefault(); // 阻止表单默认提交
 
-            // 构建发送到服务器的数据
-            var data = {
-                table: 'users',
-                method: 'get',
-                username: username,
-                email: email
-            };
+            const username = $('#username').val();
+            const email = $('#email').val();
 
-            // 通过 Ajax 发送数据到服务器
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', 'http://127.0.0.1:5000/reset', true);
-            xhr.setRequestHeader('Content-Type', 'application/json');
-
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    // 处理服务器返回的数据
-                    var response = JSON.parse(xhr.responseText);
-                    if (response.success) { // 如果匹配
-                        alert(response.message);
-                        sessionStorage.setItem('forget_user', username)
-                        window.location.href = '重置密码.html';
-                    } else { // 失败
-                        alert(response.message);
-                    }
-                }
-            };
-            xhr.send(JSON.stringify(data));
-        }
+            forget_pwd(username, email); // 调用函数并传递输入值
+        });
     </script>
 </body>
 

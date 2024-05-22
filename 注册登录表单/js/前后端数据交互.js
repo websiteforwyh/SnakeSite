@@ -17,7 +17,7 @@ function RegisterRequest() {
     xhr.open('POST', 'http://127.0.0.1:5000/register', true);
     xhr.setRequestHeader('Content-Type', 'application/json');
 
-    xhr.onreadystatechange = function() {
+    xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
             // 处理服务器返回的数据
             var response = JSON.parse(xhr.responseText);
@@ -51,7 +51,7 @@ function LoginRequest() {
     xhr.open('POST', 'http://127.0.0.1:5000/login', true);
     xhr.setRequestHeader('Content-Type', 'application/json');
 
-    xhr.onreadystatechange = function() {
+    xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
             // 处理服务器返回的数据
             var response = JSON.parse(xhr.responseText);
@@ -66,3 +66,79 @@ function LoginRequest() {
     };
     xhr.send(JSON.stringify(data));
 }
+
+
+function forget_pwd(username, email) {
+    // 验证数据是否匹配
+    username = document.getElementById('username').value;
+    email = document.getElementById('email').value;
+
+    // 构建发送到服务器的数据
+    var data = {
+        table: 'users',
+        method: 'get',
+        username: username,
+        email: email
+    };
+
+    // 通过 Ajax 发送数据到服务器
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'http://127.0.0.1:5000/reset', true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            // 处理服务器返回的数据
+            var response = JSON.parse(xhr.responseText);
+            if (response.success) { // 如果匹配
+                alert(response.message);
+                sessionStorage.setItem('forget_user', username)
+                window.location.href = '重置密码.html';
+            } else { // 失败
+                alert(response.message);
+            }
+        }
+    };
+    xhr.send(JSON.stringify(data));
+}
+
+function reset_pwd(username, password) {
+    username = sessionStorage.getItem('forget_user');
+    password = document.getElementById('password').value;
+    confirm_password = document.getElementById('confirm_password').value;
+    
+    if (!sessionStorage.getItem('forget_user')) { // 找不到username
+        alert("none");
+    }
+    if (password != confirm_password) {
+        alert("两次密码不一致！");
+    } else {
+        // 构建发送到服务器的数据
+        var data = {
+            table: 'users',
+            method: 'set',
+            username: username,
+            new_password: password
+        };
+
+        // 通过 Ajax 发送数据到服务器
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'http://127.0.0.1:5000/reset', true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                // 处理服务器返回的数据
+                var response = JSON.parse(xhr.responseText);
+                if (response.success) { // 如果匹配
+                    alert(response.message);
+                    window.location.href = '../index.html';
+                } else { // 失败
+                    alert(response.message);
+                }
+            }
+        };
+        xhr.send(JSON.stringify(data));
+    }
+}
+

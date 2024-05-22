@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>忘记密码</title>
+    <link rel="stylesheet" href="css/forget.css">
+</head>
+
+<body>
+    <h1>好恰恰重置密码中心</h1>
+    <div class="container">
+        <h2 style="text-align: center;">重置密码</h2>
+        <form>
+            <label for="password">请输入您的密码</label>
+            <input type="text" id="password" name="password" required>
+            <label for="confirm_password">请再次确认密码</label>
+            <input type="text" id="confirm_password" name="confirm_password" required>
+            <button type="submit" onclick="reset()">提交</button>
+        </form>
+    </div>
+
+    <script>
+        var username = sessionStorage.getItem('forget_user');
+        var password = document.getElementById('password').value;
+        var confirm_password = document.getElementById('confirm_password').value;
+
+        function reset() {
+            if (!username) { // 找不到username
+                window.history.back(); // 回退到原来的页面
+                alert("非法访问！访问拒绝!");
+            } else if (password != confirm_password) {
+                alert("两次密码不一致！");
+            } else {
+                // 构建发送到服务器的数据
+                var data = {
+                    table: 'users',
+                    method: 'set',
+                    username: username,
+                    new_password: password
+                };
+
+                // 通过 Ajax 发送数据到服务器
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', 'http://127.0.0.1:5000/reset', true);
+                xhr.setRequestHeader('Content-Type', 'application/json');
+
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        // 处理服务器返回的数据
+                        var response = JSON.parse(xhr.responseText);
+                        if (response.success) { // 如果匹配
+                            alert(response.message);
+                            window.location.href = '../index.html';
+                        } else { // 失败
+                            alert(response.message);
+                        }
+                    }
+                };
+                xhr.send(JSON.stringify(data));
+            }
+        }
+    </script>
+</body>
+
+</html>

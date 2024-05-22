@@ -90,20 +90,21 @@ footer {
     width: 100%;
 }
 
-.personal_bar{
+.personal_bar {
     float: right;
 }
 
-.userbox{
+.userbox {
     position: fixed;
     text-align: center;
     display: none;
-    background-color: blanchedalmond;
+    background-color: whitesmoke;
     width: 96px;
     z-index: 1;
 }
 
-.user,.signoff{
+.user,
+.signoff {
     width: auto;
     padding: 10px;
     cursor: pointer;

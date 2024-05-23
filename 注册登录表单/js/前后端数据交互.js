@@ -36,19 +36,14 @@ function RegisterRequest() {
 
 // 登录
 function LoginRequest() {
-    var username = document.getElementById("username");
-    var password = document.getElementById("password");
-    var remember_pwd = document.getElementById("remember_pwd");
-    if(remember_pwd){
-        remember_pwd.value = 1;
-    }
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
 
     // 构建发送到服务器的数据
     var data = {
         table: 'users',
-        username: username.value,
-        password: password.value,
-        remember_pwd: remember_pwd.value
+        username: username,
+        password: password,
     };
 
     // 通过 Ajax 发送数据到服务器
@@ -61,8 +56,8 @@ function LoginRequest() {
             // 处理服务器返回的数据
             var response = JSON.parse(xhr.responseText);
             if (response.success) { // 登录成功
-                alert(response.message);
-                sessionStorage.setItem('isLoggedIn', 'true'); // 登录成功后保存登录状态到LocalStorage
+                UpdateLocalStorageData(username, password);
+                sessionStorage.setItem('isLoggedIn', 'true'); // 临时登录状态
                 window.location.href = '../index.html'; // 加载新页面
             } else { // 登录失败
                 alert(response.message);

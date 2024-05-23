@@ -18,8 +18,6 @@ function register() {
     // 检测用户名或密码是否为空
     if (register_username.value === "" || register_password.value === "") {
         alert("用户名或密码不能为空！");
-    } else if (email.value === "") {
-        alert("邮箱名不能为空！");
     } else if (register_password.value != confirm_password.value) {
         alert("两次输入密码不对！");
     } else {

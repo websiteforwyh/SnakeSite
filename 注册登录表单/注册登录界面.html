@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>注册界面登录</title>
     <link rel="stylesheet" href="css/注册登录界面.css">
+
+    <script src="../首页附件/js/jquery-1.12.4.js"></script>
+
 </head>
 <body>
     <div class="container">
@@ -21,6 +24,7 @@
                 <h1>登录界面</h1>
                 <input id="username" type="text" placeholder="用户名">
                 <input id="password" type="password" placeholder="密码">
+                <div id="remember_pwd" class="remember_pwd"><input type="checkbox">记住密码</div>
                 <a href="忘记密码.html" class="wangji">忘记密码?</a>
                 <button id="login" onclick="login()">登录</button>
             </div>
@@ -51,6 +55,14 @@
 
     <!-- 登录注册操作判断 -->
     <script src="js/登录注册操作判断.js"></script>
+
+    <!-- 屏幕兼容性设置 -->
+    <script src="js/屏幕兼容.js"></script>
+
+    <!-- 本地存储 -->
+    <script src="js/localStorage.js"></script>
+
+    <script src="js/加密解密.js"></script>
 </body>
 
 </html>

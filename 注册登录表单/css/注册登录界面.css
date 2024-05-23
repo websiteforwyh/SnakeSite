@@ -105,10 +105,8 @@ input::placeholder {
     height: 33px;
     width: 100px;
     border-radius: 10px;
-    margin-top: 18px;
+    margin: 30px 0 0 15px;
     color: rgb(249, 47, 12);
-    margin-left: 40px;
-    margin-right: 10px;
     background-color: antiquewhite;
     border: none;
 }
@@ -166,10 +164,8 @@ input::placeholder {
     width: 100px;
     border-radius: 10px;
     border: none;
-    margin-top: 18px;
     color: rgb(55, 12, 249);
-    margin-left: 30px;
-    margin-right: 10px;
+    margin: 20px 30px 0 10px;
     padding: auto;
     background-color: #8cd2f0;
 
@@ -183,12 +179,17 @@ input::placeholder {
 
 .wangji {
     text-decoration: none;
-    color: whitesmoke;
-    position: relative;
-    top: -1px;
-    left: 45px;
+    position: absolute;
+    top: 59%;
+    left: 59%;
 }
 
 .wangji:hover {
-    color: rgb(24, 12, 12);
+    color: whitesmoke;}
+
+.remember_pwd{
+    display: block;
+    position: absolute;
+    top: 58%;
+    left: 25%;
 }

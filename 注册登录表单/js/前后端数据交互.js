@@ -23,8 +23,8 @@ function RegisterRequest() {
             var response = JSON.parse(xhr.responseText);
             if (response.success) { // 注册成功
                 alert(response.message);
-                //  注册成功后保存登录状态到LocalStorage
-                sessionStorage.setItem('isLoggedIn', 'true');
+                SetLocalStorageData();  // 储存信息到localStorage
+                sessionStorage.setItem('isLoggedIn', 'true');   // 临时保存登录状态
                 window.location.href = '../index.html';
             } else { // 注册失败
                 alert(response.message);
@@ -38,12 +38,17 @@ function RegisterRequest() {
 function LoginRequest() {
     var username = document.getElementById("username");
     var password = document.getElementById("password");
+    var remember_pwd = document.getElementById("remember_pwd");
+    if(remember_pwd){
+        remember_pwd.value = 1;
+    }
 
     // 构建发送到服务器的数据
     var data = {
         table: 'users',
         username: username.value,
-        password: password.value
+        password: password.value,
+        remember_pwd: remember_pwd.value
     };
 
     // 通过 Ajax 发送数据到服务器

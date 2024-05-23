@@ -19,8 +19,11 @@ function saveEdit() {
     document.getElementById('username').readOnly = true;
     document.getElementById('address').readOnly = true;
     document.getElementById('phone').readOnly = true;
+    set_personal(); // 发送请求修改数据
     // 切换显示按钮
     buttonSwitch('inline-block', 'none');
+
+    
 }
 
 function cancelEdit() {
@@ -30,65 +33,6 @@ function cancelEdit() {
     document.getElementById('phone').readOnly = true;
     // 切换显示按钮
     buttonSwitch('inline-block', 'none');
-}
-
-// 设置个人信息
-function set_personal() {
-    var username = document.getElementById("username");
-    var address = document.getElementById("address");
-    var phone = document.getElementById("phone");
-
-    // 构建发送到服务器的数据
-    var data = {
-        table: 'personal',
-        method: "set",
-        username: username.value,
-        address: address.value,
-        phone:phone.value
-    };
-
-    // 通过 Ajax 发送数据到服务器
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'http://127.0.0.1:5000/personal', true);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            var response = JSON.parse(xhr.responseText);
-            if (response.success) {
-                alert(response.message);
-            } else {
-                alert(response.message);
-            }
-        }
-    };
-    xhr.send(JSON.stringify(data));
-}
-
-// 获取数据进行匹配，替换页面数据（待实现-------------）
-function get_personal(){
-
-    // 构建发送到服务器的数据
-    var data = {
-        table: 'personal',
-        method: "get"
-    };
-
-    // 通过 Ajax 发送数据到服务器
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'http://127.0.0.1:5000/personal', true);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            var response = JSON.parse(xhr.responseText);
-            
-            console.log(response);
-            document.getElementById('username').value = response.username;
-        }
-    };
-    xhr.send(JSON.stringify(data));
-    
 }
 
 // 更换元素数据/禁止非法访问

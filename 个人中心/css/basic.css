@@ -28,6 +28,11 @@ ul {
     padding: 0;
 }
 
+#saveBtn,
+#cancelBtn{
+    display: none;
+}
+
 button {
     background-color: #4CAF50;
     border: none;

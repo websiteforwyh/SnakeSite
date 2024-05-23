@@ -35,8 +35,6 @@ document.getElementById('username').addEventListener('input', function () {
             if (user.username === username && user.remember_pwd == true) {
                 pwd = decryptPassword(user.password);
                 document.getElementById('password').value = pwd;
-            }else{
-                console.log(user.remember_pwd, user.username);
             }
         }
     }

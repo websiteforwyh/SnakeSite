@@ -35,8 +35,8 @@ function UpdateLocalStorageData(username, password) {
     var encrypted = encryptPassword(password); // 对密码进行加密
 
     if (!storedCredentialsJSON) {
-        // 如果存在存储的凭据数据，则将其解析为对象赋值给 credentials，否则初始化为空对象
-        var credentials = storedCredentialsJSON ? JSON.parse(storedCredentialsJSON) : {};
+        // 初始化空对象
+        var credentials = {};
 
         var user = {    // 构建用户凭据对象
             username: username,
@@ -53,11 +53,17 @@ function UpdateLocalStorageData(username, password) {
 
         var checkbox = document.getElementById("checkbox");
 
+        for (var key in storedCredentials) {    
+            if (storedCredentials.hasOwnProperty(key)) {
+                var user = storedCredentials[key];
+                // 重置所有登录状态设为false
+                user.login_status = false;
+            }
+        }
+
         for (var key in storedCredentials) {
             if (storedCredentials.hasOwnProperty(key)) {
                 var user = storedCredentials[key];
-                // 重置登录状态为false
-                user.login_status = false;
 
                 if (user.username === username) {   // 找到需要操作的用户
                     user.login_status = true;   // 标记最新登录用户

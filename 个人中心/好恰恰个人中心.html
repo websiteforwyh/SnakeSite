@@ -16,13 +16,13 @@
     <main>
         <section class="profile">
             <h2>个人信息</h2>
-            <p>用户名：<input type="text" id="username" value="张三" readonly></p>
-            <p>地址：<input type="text" id="address" value="广州" readonly></p>
-            <p>手机：<input type="text" id="phone" value="123456789" readonly></p>
+            <p>用户名：<input type="text" id="username" value="" readonly></p>
+            <p>地址：<input type="text" id="address" value="" readonly></p>
+            <p>手机：<input type="text" id="phone" value="" readonly></p>
         </section>
         <button id="editBtn" class="edit-btn" onclick="toggleEdit()">编辑个人信息</button>
-        <button id="saveBtn" class="edit-btn" style="display: none;" onclick="set_personal()">保存</button>
-        <button id="cancelBtn" class="edit-btn" style="display: none;" onclick="cancelEdit()">取消</button>
+        <button id="saveBtn" class="edit-btn" onclick="saveEdit()">保存</button>
+        <button id="cancelBtn" class="edit-btn" onclick="cancelEdit()">取消</button>
 
         <section class="favorites">
             <h2>零食购物车</h2>
@@ -38,6 +38,8 @@
     </main>
 
     <script src="js/个人中心.js"></script>
+
+    <script src="js/前后端数据交互.js"></script>
 </body>
 
 </html>

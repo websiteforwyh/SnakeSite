@@ -51,7 +51,7 @@ function UpdateLocalStorageData(username, password) {
     } else {
         var storedCredentials = JSON.parse(storedCredentialsJSON);
 
-        var remember = document.getElementById("remember_pwd").checked;
+        var checkbox = document.getElementById("checkbox");
 
         for (var key in storedCredentials) {
             if (storedCredentials.hasOwnProperty(key)) {
@@ -61,7 +61,7 @@ function UpdateLocalStorageData(username, password) {
 
                 if (user.username === username) {   // 找到需要操作的用户
                     user.login_status = true;   // 标记最新登录用户
-                    if (remember) {   // 如果用户选择记住密码
+                    if (checkbox.checked) {   // 如果用户选择记住密码
                         user.remember_pwd = true;
                     } else {
                         user.remember_pwd = false;

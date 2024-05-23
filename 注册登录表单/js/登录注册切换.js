@@ -8,7 +8,6 @@ to_register.addEventListener('click', () => {
     form_box.style.transform = 'translateX(80%)';
     login_box.classList.add('hidden');
     register_box.classList.remove('hidden');
-
 })
 to_login.addEventListener('click', () => {
     form_box.style.transform = 'translateX(0%)';

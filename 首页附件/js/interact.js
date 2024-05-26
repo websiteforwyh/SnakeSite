@@ -1,17 +1,18 @@
-function getRequest(){
+function index(){
     // 通过 Ajax 发送数据到服务器
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'http://127.0.0.1:5000/get_signOff', true);
+    xhr.open('GET', 'http://127.0.0.1:5000/index', true);
 
     xhr.onload = function () {
-        var response = JSON.parse(xhr.responseText);
         if (xhr.status === 200) {
-            alert(response.message);
-        } else {
-            alert(response.message);
+            
         }
     };
     xhr.send();
+}
+
+window.onload = function() {
+    index();
 }
 
 function check() {
@@ -45,11 +46,25 @@ $(".active").click(function () {
     }
 });
 
-function signOff() {
+
+function logoutRequest(){
+    // 通过 Ajax 发送数据到服务器
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'http://127.0.0.1:5000/logout', true);
+
+    xhr.onload = function () {
+        if (xhr.status === 200) {
+            alert(xhr.responseText);
+        }
+    };
+    xhr.send();
+}
+
+function logout() {
     let a = confirm("是否要退出登录？");
     if (a) {
         sessionStorage.removeItem('isLoggedIn');
-        getRequest();
+        logoutRequest();
         $(".userbox").css("display", 'none');
     }
 }

@@ -1,7 +1,7 @@
-function index(){
+function home(){
     // 通过 Ajax 发送数据到服务器
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'http://127.0.0.1:5000/index', true);
+    xhr.open('GET', 'http://127.0.0.1:5000/home', true);
 
     xhr.onload = function () {
         if (xhr.status === 200) {
@@ -12,7 +12,7 @@ function index(){
 }
 
 window.onload = function() {
-    index();
+    home();
 }
 
 function check() {
@@ -21,7 +21,7 @@ function check() {
         // 用户未登录，显示提示信息并重定向到登录页面
         let c = confirm("请先登录！");
         if (c) {
-            window.location.href = '注册登录表单/logon.html';
+            window.location.href = '注册登录表单/login.html';
         }
     } else {
         window.location.href = '个人中心/personal.html';
@@ -35,7 +35,7 @@ $(".active").click(function () {
         // 用户未登录，显示提示信息并重定向到登录页面
         let c = confirm("请先登录！");
         if (c) {
-            window.location.href = '注册登录表单/logon.html';
+            window.location.href = '注册登录表单/login.html';
         }
     } else {
         if (display == "block") {

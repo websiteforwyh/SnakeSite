@@ -136,3 +136,11 @@ function reset_pwd(username, password) {
         xhr.send(JSON.stringify(data));
     }
 }
+
+// 进入新界面时发送get请求
+function getRequest(route){
+    // 通过 Ajax 发送数据到服务器
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', `http://127.0.0.1:5000/${route}`, true);
+    xhr.send();
+}

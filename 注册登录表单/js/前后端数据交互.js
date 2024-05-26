@@ -40,33 +40,26 @@ function LoginRequest() {
     var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
 
-    // 构建发送到服务器的数据
-    var data = {
-        table: 'users',
-        username: username,
-        password: password,
-    };
-
     // 通过 Ajax 发送数据到服务器
     var xhr = new XMLHttpRequest();
     xhr.open('POST', 'http://127.0.0.1:5000/login', true);
-    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            // 处理服务器返回的数据
-            var response = JSON.parse(xhr.responseText);
-            if (response.success) { // 登录成功
-                UpdateLocalStorageData(username, password);
-                sessionStorage.setItem('isLoggedIn', 'true'); // 临时登录状态
-                sessionStorage.setItem('login_username', username); // 临时保存用户名
-                window.location.href = '../index.html'; // 加载新页面
-            } else { // 登录失败
-                alert(response.message);
-            }
+    xhr.onload = function() {
+        var response = JSON.parse(xhr.responseText);
+        if (xhr.status === 200) {
+            UpdateLocalStorageData(username, password);
+            sessionStorage.setItem('isLoggedIn', 'true'); // 临时登录状态
+            sessionStorage.setItem('login_username', username); // 临时保存用户名
+            window.location.href = '../index.html'; // 加载新页面
+        } else {
+            alert(response.message);
         }
-    };
-    xhr.send(JSON.stringify(data));
+      };
+      
+    var str = 'username='+username+'&password='+password;
+    //   xhr.send('username=admin&password=123');
+    xhr.send(str);
 }
 
 

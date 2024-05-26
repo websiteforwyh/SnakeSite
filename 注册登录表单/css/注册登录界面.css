@@ -109,6 +109,7 @@ input::placeholder {
     color: rgb(249, 47, 12);
     background-color: antiquewhite;
     border: none;
+    cursor: pointer;
 }
 
 .form-box button:hover {
@@ -168,6 +169,7 @@ input::placeholder {
     margin: 20px 30px 0 10px;
     padding: auto;
     background-color: #8cd2f0;
+    cursor: pointer;
 
 }
 

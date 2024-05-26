@@ -22,8 +22,6 @@ function saveEdit() {
     set_personal(); // 发送请求修改数据
     // 切换显示按钮
     buttonSwitch('inline-block', 'none');
-
-    
 }
 
 function cancelEdit() {

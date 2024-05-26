@@ -95,7 +95,7 @@ function forget_pwd(username, email) {
             if (response.success) { // 如果匹配
                 alert(response.message);
                 sessionStorage.setItem('forget_user', username)
-                window.location.href = '重置密码.html';
+                window.location.href = 'reset.html';
             } else { // 失败
                 alert(response.message);
             }

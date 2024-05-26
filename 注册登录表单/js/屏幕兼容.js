@@ -5,6 +5,6 @@ if (s.height <= 840 && s.width <= 1344) {
     $('.container').css('top', '100px');
     $('.container').css('left', '30px');
 } else {
-    $('.container').css('top', '100px');
+    $('.container').css('top', '245px');
     $('.container').css('left', '-15px');
 }

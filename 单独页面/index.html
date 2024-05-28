@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>好恰恰首页</title>
+
+    <link href="首页附件/css/basic.css" rel="stylesheet" type="text/css" />
+    <link href="首页附件/css/slider.css" rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript" src="首页附件/js/jquery-1.12.4.js"></script>
+    <script type="text/javascript" src="首页附件/js/slider.js"></script>
+
+    <script>
+        var links = document.getElementById("links");
+        var introduction = document.getElementById("introduction");
+        var index_frame = document.getElementById("index_frame");
+        links.addEventListener("click", function() {
+            if (introduction.style.display === "none") {
+                introduction.style.display = "block";
+                index_frame.style.display = "block";
+            } else {
+                introduction.style.display = "block";
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">首页</a></li>
+                <li><a id="links" href="#">零食介绍<iframe id="introduction" src="Introduction/introduction.html" frameborder="0" style="display: none;"></iframe></a></li>
+                <li><a href="#">零食售卖</a></li>
+                <li class="personal_bar">
+                    <button class="active" href="#">个人中心</button>
+                    <div class="userbox">
+                        <p class="user" onclick="check()">用户</p>
+                        <p class="signoff" onclick="logout()">退出登录</p>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <iframe id="index_frame" src="index_iframe.html" frameborder="0" style="display: block;">
+        <div class="content">
+            <div id="slider">
+                <ul id="show">
+                    <li><img src="首页附件/images/7.jpg" alt="1" /></li>
+                    <li><img src="首页附件/images/8.jpg" alt="2" /></li>
+                    <li><img src="首页附件/images/66.jpg" alt="3" /></li>
+                </ul>
+                <ul id="number">
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                </ul>
+            </div>
+        </div>
+    
+    
+        <section class="featured-dish">
+            <h2>零食分类区</h2>
+    
+            <div class="one">
+                <div class="dish">
+                    <img src="首页附件/images/11.jpg" alt="干果类">
+                    <h3>干果类</h3>
+                </div>
+                <div class="dish">
+                    <img src="首页附件/images/22.jpg" alt="饼干类">
+                    <h3>饼干类</h3>
+                </div>
+                <div class="dish">
+                    <img src="首页附件/images/33.jpg" alt="糖果类">
+                    <h3>糖果类</h3>
+                </div>
+                <div class="dish">
+                    <img src="首页附件/images/55.jpg" alt="辣条类">
+                    <h3>辣条类</h3>
+                </div>
+                <div class="dish">
+                    <img src="首页附件/images/66.jpg" alt="膨胀食品类">
+                    <h3>膨胀食品类</h3>
+                </div>
+            </div>
+        </section>
+    </iframe>
+    <footer>
+        <p>&copy; 2021 好恰恰首页网页</p>
+    </footer>
+
+    <script type="text/javascript" src="首页附件/js/屏幕兼容.js"></script>
+
+    <script src="首页附件/js/interact.js"></script>
+</body>
+
+
+</html>

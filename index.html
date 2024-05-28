@@ -11,15 +11,36 @@
 
     <script type="text/javascript" src="首页附件/js/jquery-1.12.4.js"></script>
     <script type="text/javascript" src="首页附件/js/slider.js"></script>
+
+    <style>
+        #index_frame {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+        
+        #introduction_frame {
+            width: 100%;
+            height: 100%;
+            display: none;
+        }
+        
+        #snakelist_frame {
+            width: 100%;
+            height: 100%;
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
     <header>
         <nav>
-            <ul>
-                <li><a href="#">首页</a></li>
-                <li><a href="#">零食介绍</a></li>
-                <li><a href="#">零食售卖</a></li>
+            <ul class="bar">
+                <li class="list_item" onclick="index()"><a>首页</a></li>
+                <li class="list_item" onclick="introduction()"><a>零食介绍</a></li>
+                <li class="list_item" onclick="snakelist()"><a>零食售卖</a></li>
+
                 <li class="personal_bar">
                     <button class="active" href="#">个人中心</button>
                     <div class="userbox">
@@ -31,48 +52,10 @@
         </nav>
     </header>
 
-    <div class="content">
-        <div id="slider">
-            <ul id="show">
-                <li><img src="首页附件/images/7.jpg" alt="1" /></li>
-                <li><img src="首页附件/images/8.jpg" alt="2" /></li>
-                <li><img src="首页附件/images/66.jpg" alt="3" /></li>
-            </ul>
-            <ul id="number">
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
-            </ul>
-        </div>
-    </div>
+    <iframe id="index_frame" class="iframe" src="index_iframe.html" frameborder="0"></iframe>
+    <iframe id="introduction_frame" class="iframe" src="Introduction/introduction.html" frameborder="0"></iframe>
+    <iframe id="snakelist_frame" class="iframe" src="SnakeList/snakelist.html" frameborder="0"></iframe>
 
-
-    <section class="featured-dish">
-        <h2>零食分类区</h2>
-
-        <div class="one">
-            <div class="dish">
-                <img src="首页附件/images/11.jpg" alt="干果类">
-                <h3>干果类</h3>
-            </div>
-            <div class="dish">
-                <img src="首页附件/images/22.jpg" alt="饼干类">
-                <h3>饼干类</h3>
-            </div>
-            <div class="dish">
-                <img src="首页附件/images/33.jpg" alt="糖果类">
-                <h3>糖果类</h3>
-            </div>
-            <div class="dish">
-                <img src="首页附件/images/55.jpg" alt="辣条类">
-                <h3>辣条类</h3>
-            </div>
-            <div class="dish">
-                <img src="首页附件/images/66.jpg" alt="膨胀食品类">
-                <h3>膨胀食品类</h3>
-            </div>
-        </div>
-    </section>
     <footer>
         <p>&copy; 2021 好恰恰首页网页</p>
     </footer>
@@ -80,6 +63,8 @@
     <script type="text/javascript" src="首页附件/js/屏幕兼容.js"></script>
 
     <script src="首页附件/js/interact.js"></script>
+
+    <script src="首页附件/js/iframe切换.js"></script>
 </body>
 
 

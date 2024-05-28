@@ -17,7 +17,7 @@ function RegisterRequest() {
     xhr.open('POST', 'http://127.0.0.1:5000/register', true);
     xhr.setRequestHeader('Content-Type', 'application/json');
 
-    xhr.onreadystatechange = function() {
+    xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
             // 处理服务器返回的数据
             var response = JSON.parse(xhr.responseText);
@@ -45,7 +45,7 @@ function LoginRequest() {
     xhr.open('POST', 'http://127.0.0.1:5000/login', true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
-    xhr.onload = function() {
+    xhr.onload = function () {
         var response = JSON.parse(xhr.responseText);
         if (xhr.status === 200) {
             UpdateLocalStorageData(username, password);
@@ -55,9 +55,9 @@ function LoginRequest() {
         } else {
             alert(response.message);
         }
-      };
-      
-    var str = 'username='+username+'&password='+password;
+    };
+
+    var str = 'username=' + username + '&password=' + password;
     //   xhr.send('username=admin&password=123');
     xhr.send(str);
 }
@@ -81,7 +81,7 @@ function forget_pwd(username, email) {
     xhr.open('POST', 'http://127.0.0.1:5000/reset', true);
     xhr.setRequestHeader('Content-Type', 'application/json');
 
-    xhr.onreadystatechange = function() {
+    xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
             // 处理服务器返回的数据
             var response = JSON.parse(xhr.responseText);
@@ -121,7 +121,7 @@ function reset_pwd(username, password) {
         xhr.open('POST', 'http://127.0.0.1:5000/reset', true);
         xhr.setRequestHeader('Content-Type', 'application/json');
 
-        xhr.onreadystatechange = function() {
+        xhr.onreadystatechange = function () {
             if (xhr.readyState === 4 && xhr.status === 200) {
                 // 处理服务器返回的数据
                 var response = JSON.parse(xhr.responseText);
@@ -138,7 +138,7 @@ function reset_pwd(username, password) {
 }
 
 // 进入新界面时发送get请求
-function getRequest(route){
+function getRequest(route) {
     // 通过 Ajax 发送数据到服务器
     var xhr = new XMLHttpRequest();
     xhr.open('GET', `http://127.0.0.1:5000/${route}`, true);

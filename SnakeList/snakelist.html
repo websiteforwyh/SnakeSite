@@ -1,109 +1,78 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <style>
-    body{
-      height: 930px;
-    }
-    .product {
-      display: flex;
-      align-items: center;
-      margin-bottom: 10px;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>零食售卖</title>
 
-    .product img {
-      width: 100px;
-      height: 100px;
-      margin-right: 20px;
-    }
-
-    .product input[type="number"] {
-      width: 50px;
-    }
-
-    h1 {
-      color: #576ccc;
-    }
-
-    .cart-item {
-      padding: 10px 0;
-      border-bottom: 1px solid #1a1818;
-    }
-  </style>
+    <link rel="stylesheet" href="css/basic.css">
 </head>
 
 <body>
-  <body style=" background: linear-gradient(to bottom, #b7bfc5, #b10e62d7);"></body>
-  <h1>快来选择你喜欢的零食吧~</h1>
-  <hr>
-  <div class="cart-item">
-    <div class="product">
-      <img src="img/开心果.jpg" alt="商品1">
-      <span>香脆开心果</span>
-      <input type="number" value="0" min="1">
-      <span>¥20</span>
+    <body style=" background: linear-gradient(to bottom, #b7bfc5, #b10e62d7);"></body>
+    <h1>快来选择你喜欢的零食吧~</h1>
+    <hr>
+    <div class="cart-item">
+        <div class="product">
+            <img src="img/开心果.jpg" alt="商品1">
+            <span>香脆开心果</span>
+            <input type="number" value="0" min="1">
+            <span>¥20</span>
+            <button class="collected" snake="香脆开心果">收藏</button>
+        </div>
     </div>
-  </div>
-  <div class="cart-item">
-    <div class="product">
-      <img src="img/盼盼.jpg" alt="商品2">
-      <span>柔软面包</span>
-      <input type="number" value="0" min="1">
-      <span>¥15</span>
+    <div class="cart-item">
+        <div class="product">
+            <img src="img/盼盼.jpg" alt="商品2">
+            <span>柔软面包</span>
+            <input type="number" value="0" min="1">
+            <span>¥15</span>
+            <button class="collected" snake="柔软面包">收藏</button>
+        </div>
     </div>
-  </div>
-  <div class="cart-item">
-    <div class="product">
-      <img src="img/糖果.jpg" alt="商品3">
-      <span>多味糖果</span>
-      <input type="number" value="0" min="1">
-      <span>¥10</span>
+    <div class="cart-item">
+        <div class="product">
+            <img src="img/糖果.jpg" alt="商品3">
+            <span>多味糖果</span>
+            <input type="number" value="0" min="1">
+            <span>¥10</span>
+            <button class="collected" snake="多味糖果">收藏</button>
+        </div>
     </div>
-  </div>
-  <div class="cart-item">
-    <div class="product">
-      <img src="img/薯片.jpg" alt="商品4">
-      <span>美味薯片</span>
-      <input type="number" value="0" min="1">
-      <span>¥10</span>
+    <div class="cart-item">
+        <div class="product">
+            <img src="img/薯片.jpg" alt="商品4">
+            <span>美味薯片</span>
+            <input type="number" value="0" min="1">
+            <span>¥10</span>
+            <button class="collected" snake="美味薯片">收藏</button>
+        </div>
     </div>
-  </div>
-  <div class="cart-item">
-    <div class="product">
-      <img src="img/辣条.png" alt="商品5">
-      <span>爽口辣条</span>
-      <input type="number" value="0" min="1">
-      <span>¥20</span>
+    <div class="cart-item">
+        <div class="product">
+            <img src="img/辣条.png" alt="商品5">
+            <span>爽口辣条</span>
+            <input type="number" value="0" min="1">
+            <span>¥20</span>
+            <button class="collected" snake="爽口辣条">收藏</button>
+        </div>
     </div>
-  </div>
-  <div class="cart-item">
-    <div class="product">
-      <img src="img/饼干.jpg" alt="商品6">
-      <span>巧克力饼干</span>
-      <input type="number" value="0" min="1">
-      <span>¥25</span>
+    <div class="cart-item">
+        <div class="product">
+            <img src="img/饼干.jpg" alt="商品6">
+            <span>巧克力饼干</span>
+            <input type="number" value="0" min="1">
+            <span>¥25</span>
+            <button class="collected" snake="巧克力饼干">收藏</button>
+        </div>
     </div>
-  </div>
-  <button onclick="calculateTotal()">计算总价</button>
-  <p id="totalPrice"></p>
+    <button onclick="calculateTotal()">计算总价</button>
+    <p id="totalPrice"></p>
 
-  <script>
-    function calculateTotal() {
-      var products = document.getElementsByClassName("product");
-      var totalPrice = 0;
+    <script src="js/func.js"></script>
 
-      for (var i = 0; i < products.length; i++) {
-        var product = products[i];
-        var price = parseFloat(product.lastElementChild.textContent.slice(1));
-        var quantity = parseInt(product.querySelector("input[type='number']").value);
-        totalPrice += price * quantity;
-      }
-
-      document.getElementById("totalPrice").textContent = "总价：" + totalPrice + "元";
-    }
-  </script>
-
+    <script src="js/数据交互.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,32 @@
+body {
+    height: 930px;
+}
+
+.product {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.product img {
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+}
+
+.product input[type="number"] {
+    width: 50px;
+}
+
+h1 {
+    color: #576ccc;
+}
+
+.cart-item {
+    padding: 10px 0;
+    border-bottom: 1px solid #1a1818;
+}
+
+.cart-item button{
+    margin: 20px;
+}

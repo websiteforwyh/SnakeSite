@@ -27,9 +27,7 @@
         <section class="favorites">
             <h2>零食购物车</h2>
             <ul id="snackList">
-                <li></li>
-                <li></li>
-                <li></li>
+
             </ul>
         </section>
         <button onclick="addSnack()">自定义添加零食</button>
@@ -41,8 +39,11 @@
 
     <script src="js/前后端数据交互.js"></script>
 
+    <script src="../SnackList/js/数据交互.js"></script>
+
     <script>
         get_personal('personal');
+        getSnackList();
     </script>
 </body>
 

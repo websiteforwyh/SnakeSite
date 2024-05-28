@@ -23,4 +23,8 @@ if (s.height <= 840 && s.width <= 1344) {
     $(".content").css('top', '20px');
 
 
+    $("#index_frame").css('height', '868px');
+    $("#introduction_frame").css('height', '868px');
+    $("#snakelist_frame").css('height', '868px');
+
 }

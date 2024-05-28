@@ -8,13 +8,13 @@ collected.forEach(function (item) {
                 window.location.href = '../Sign/login.html';
             }
         }else if (this) {
-            var snake = this.getAttribute('snake');
+            var snack = this.getAttribute('snack');
             if (this.textContent == "收藏") {
                 this.textContent = "已收藏";
-                collected(snake);
+                collected(snack);
             } else {
                 this.textContent = "收藏";
-                uncollected(snake);
+                uncollected(snack);
             }
         }
     });

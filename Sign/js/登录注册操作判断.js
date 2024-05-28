@@ -12,7 +12,6 @@ function login() {
 function register() {
     var register_username = document.getElementById("register_username");
     var register_password = document.getElementById("register_password");
-    var email = document.getElementById("email");
     var confirm_password = document.getElementById("comfirm_password");
 
     // 检测用户名或密码是否为空

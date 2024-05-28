@@ -21,10 +21,10 @@ function check() {
         // 用户未登录，显示提示信息并重定向到登录页面
         let c = confirm("请先登录！");
         if (c) {
-            window.location.href = '注册登录表单/login.html';
+            window.location.href = 'Sign/login.html';
         }
     } else {
-        window.location.href = '个人中心/personal.html';
+        window.location.href = 'Personal/personal.html';
     }
 }
 
@@ -35,7 +35,7 @@ $(".active").click(function () {
         // 用户未登录，显示提示信息并重定向到登录页面
         let c = confirm("请先登录！");
         if (c) {
-            window.location.href = '注册登录表单/login.html';
+            window.location.href = 'Sign/login.html';
         }
     } else {
         if (display == "block") {

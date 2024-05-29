@@ -7,9 +7,9 @@ if (s.height <= 840 && s.width <= 1344) {
     $('.one').css('left', '1%');
     $(".content").css('height', '300px');
 
-    $("#index_frame").css('height', '657px');
-    $("#introduction_frame").css('height', '657px');
-    $("#snakelist_frame").css('height', '657px');
+    $("#index_frame").css('height', '740px');
+    $("#introduction_frame").css('height', '625px');
+    $("#snakelist_frame").css('height', '625px');
 } else {
     $('.featured-dish h2').css('margin', '51px 0px 0 901px');
     $('.one').css('top', '570px');

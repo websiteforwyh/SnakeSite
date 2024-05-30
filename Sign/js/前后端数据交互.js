@@ -4,26 +4,34 @@ function RegisterRequest() {
     var password = document.getElementById("register_password").value;
     var email = document.getElementById("email").value;
 
+    // 构建发送到服务器的数据
+    var data = {
+        username: username,
+        password: password,
+        email: email
+    };
+
     // 通过 Ajax 发送数据到服务器
     var xhr = new XMLHttpRequest();
     xhr.open('POST', 'http://127.0.0.1:5000/register', true);
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.setRequestHeader('Content-Type', 'application/json');
 
-    xhr.onreadystatechange = function () {
-        if (xhr.status === 200) {
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
             // 处理服务器返回的数据
-            var response = xhr.responseText;
-            alert(response);
-            SetLocalStorageData(); // 储存信息到localStorage
-            sessionStorage.setItem('isLoggedIn', 'true'); // 临时保存登录状态
-            sessionStorage.setItem('login_username', username); // 临时保存用户名
-            window.location.href = '../index.html';
-        } else { // 注册失败
-            alert("失败");
+            var response = JSON.parse(xhr.responseText);
+            if (response.success) { // 注册成功
+                alert(response.message);
+                SetLocalStorageData(); // 储存信息到localStorage
+                sessionStorage.setItem('isLoggedIn', 'true'); // 临时保存登录状态
+                sessionStorage.setItem('login_username', username); // 临时保存用户名
+                window.location.href = '../index.html';
+            } else { // 注册失败
+                alert(response.message);
+            }
         }
-    }
-    var str = 'username=' + username + '&password=' + password + '&email=' + email;
-    xhr.send(str);
+    };
+    xhr.send(JSON.stringify(data));
 }
 
 // 登录
@@ -36,7 +44,7 @@ function LoginRequest() {
     xhr.open('POST', 'http://127.0.0.1:5000/login', true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
-    xhr.onload = function () {
+    xhr.onload = function() {
         var response = JSON.parse(xhr.responseText);
         if (xhr.status === 200) {
             UpdateLocalStorageData(username, password);
@@ -72,7 +80,7 @@ function forget_pwd(username, email) {
     xhr.open('POST', 'http://127.0.0.1:5000/reset', true);
     xhr.setRequestHeader('Content-Type', 'application/json');
 
-    xhr.onreadystatechange = function () {
+    xhr.onreadystatechange = function() {
         if (xhr.readyState === 4 && xhr.status === 200) {
             // 处理服务器返回的数据
             var response = JSON.parse(xhr.responseText);
@@ -112,7 +120,7 @@ function reset_pwd(username, password) {
         xhr.open('POST', 'http://127.0.0.1:5000/reset', true);
         xhr.setRequestHeader('Content-Type', 'application/json');
 
-        xhr.onreadystatechange = function () {
+        xhr.onreadystatechange = function() {
             if (xhr.readyState === 4 && xhr.status === 200) {
                 // 处理服务器返回的数据
                 var response = JSON.parse(xhr.responseText);

@@ -12,8 +12,10 @@ function set_personal() {
         var response = JSON.parse(xhr.responseText);
         if (xhr.status === 200) {
             sessionStorage.setItem('login_username', username); // 同步登录用户
+            EditStatusFalse(); // 禁用编辑
+            buttonSwitch('inline-block', 'none'); // 切换显示按钮
             alert(response.message);
-        } else {
+        } else if (xhr.status === 409) {
             alert(response.message);
         }
     };

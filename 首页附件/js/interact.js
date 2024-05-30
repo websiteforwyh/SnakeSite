@@ -65,6 +65,8 @@ function logout() {
     if (a) {
         sessionStorage.removeItem('isLoggedIn');
         logoutRequest();
+        getCollections();
+        window.location.reload();
         $(".userbox").css("display", 'none');
     }
 }

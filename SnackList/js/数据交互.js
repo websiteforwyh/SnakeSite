@@ -34,9 +34,9 @@ function getCollections() {
     xhr.send();
 }
 
-// if (sessionStorage.getItem('isLoggedIn')) {
-//     getCollections(); // 登录之后调用该函数
-// }
+if (sessionStorage.getItem('isLoggedIn')) {
+    getCollections(); // 登录之后调用该函数
+}
 
 function uncollected(snack) {
     var xhr = new XMLHttpRequest();

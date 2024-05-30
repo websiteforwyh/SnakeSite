@@ -1,13 +1,13 @@
 var collected = document.querySelectorAll(".collected");
 
-collected.forEach(function (item) {
-    item.addEventListener('click', function () {
+collected.forEach(function(item) {
+    item.addEventListener('click', function() {
         if (!sessionStorage.getItem('isLoggedIn')) {
             let c = confirm("请先登录！");
             if (c) {
                 window.location.href = '../Sign/login.html';
             }
-        }else if (this) {
+        } else if (this) {
             var snack = this.getAttribute('snack');
             if (this.textContent == "收藏") {
                 this.textContent = "已收藏";
@@ -26,7 +26,7 @@ function calculateTotal() {
 
     for (var i = 0; i < products.length; i++) {
         var product = products[i];
-        var price = parseFloat(product.lastElementChild.textContent.slice(1));
+        var price = parseFloat(product.lastElementChild.previousElementSibling.textContent.slice(1));
         var quantity = parseInt(product.querySelector("input[type='number']").value);
         totalPrice += price * quantity;
     }

@@ -12,7 +12,7 @@ if (s.height <= 840 && s.width <= 1344) {
     $("#snakelist_frame").css('height', '625px');
 } else {
     $('.featured-dish h2').css('margin', '51px 0px 0 901px');
-    $('.one').css('top', '570px');
+    $('.one').css('top', '530px');
     $('.one').css('left', '18%');
 
     $('#show').css('height', '400px');
